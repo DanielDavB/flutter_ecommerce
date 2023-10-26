@@ -81,22 +81,47 @@ class productsingle extends StatelessWidget {
     );
   }
 
-  // Container with two sections, left and right
-  Container twoSectionContainer() {
-    return Container(
-      height: 380,
+  Expanded twoSectionContainer() {
+    return Expanded(
       child: Row(
         children: [
-          // Left section
-          Expanded(
-            child: Container(
-              color: Colors.red,
+          // Left section with a fixed width of 40px containing two vertical sections
+          Container(
+            width: 40,
+            child: Column(
+              children: [
+                // First vertical section with ListWheelScrollView
+                Expanded(
+                  child: ListWheelScrollView(
+                    itemExtent: 50, // Adjust this value as needed
+                    useMagnifier: true,
+                    magnification: 1.1,
+                    children: List<Widget>.generate(50, (index) {
+                      return Center(
+                        child: Text(
+                          '$index',
+                          style: const TextStyle(fontSize: 16),
+                        ),
+                      );
+                    }),
+                  ),
+                ),
+                // Second vertical section
+                Expanded(
+                  flex: 2, // Adjust the flex value to make it larger
+                  child: Container(
+
+                      // Add your content for the second section here
+                      ),
+                ),
+              ],
             ),
           ),
-          // Right section
+          // Right section takes up the remaining space
           Expanded(
             child: Container(
               color: Colors.blue,
+              // Add your content for the right section here
             ),
           ),
         ],
