@@ -12,6 +12,7 @@ class ProductSingle extends StatelessWidget {
         children: [
           buildFullscreenContainer(context),
           TwoSectionContainer(),
+          BlackButton(), // Add the black button
         ],
       ),
     );
@@ -149,11 +150,12 @@ class ProductSingle extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
               height: 20), // Add space between the color section and size text
-          Padding(
+          const Padding(
             padding: EdgeInsets.symmetric(
-                horizontal: 20.0), // Add the same padding as the other elements
+              horizontal: 20.0,
+            ),
             child: Text(
               "SIZE",
               style: TextStyle(
@@ -161,6 +163,31 @@ class ProductSingle extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 color: Colors.black,
                 fontFamily: 'fightt3_',
+              ),
+            ),
+          ),
+          const Expanded(
+            child: Center(
+              child: Padding(
+                padding: EdgeInsets.all(20.0), // Add padding to the text
+                child: SingleChildScrollView(
+                  child: Text(
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+                    "Sed lacinia ligula vitae nisl iaculis, eget feugiat purus tempus. "
+                    "Pellentesque ac risus vel justo suscipit bibendum. "
+                    "Vestibulum sollicitudin dolor id nunc feugiat, quis tempor quam vehicula. "
+                    "Vestibulum sollicitudin dolor id nunc feugiat, quis tempor quam vehicula. "
+                    "Vestibulum sollicitudin dolor id nunc feugiat, quis tempor quam vehicula. "
+                    "Vestibulum sollicitudin dolor id nunc feugiat, quis tempor quam vehicula. "
+                    "Vestibulum sollicitudin dolor id nunc feugiat, quis tempor quam vehicula. "
+                    "Suspendisse in nulla id purus feugiat vestibulum.",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.grey,
+                      height: 2.0,
+                    ),
+                  ),
+                ),
               ),
             ),
           ),
@@ -176,6 +203,28 @@ class ProductSingle extends StatelessWidget {
           leftSection(),
           rightSection(),
         ],
+      ),
+    );
+  }
+
+  // ignore: non_constant_identifier_names
+  Widget BlackButton() {
+    return Container(
+      width: double.infinity, // Takes the full width of the screen
+      height: 50, // Set the height to 20
+      margin: EdgeInsets.all(10.0), // Add margin
+      decoration: BoxDecoration(
+        color: Colors.black, // Black background color
+        borderRadius: BorderRadius.circular(10.0), // Add border radius
+      ),
+      child: const Center(
+        child: Text(
+          "300 MXN",
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 16,
+          ),
+        ),
       ),
     );
   }
